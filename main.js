@@ -6,6 +6,7 @@ const nextBtn = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let travel = document.getElementsByTagName("small")[0].innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -66,7 +67,7 @@ function showScore() {
 
 function handleNextBtn() {
     currentQuestionIndex++;
-
+    travel.innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
