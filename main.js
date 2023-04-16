@@ -4,9 +4,11 @@ const questionElement = document.getElementById("question");
 const answerBtns = document.getElementById("answer-buttons");
 const nextBtn = document.getElementById("next-btn");
 
+// Access Question Index, Score, and Questions Pagination
 let currentQuestionIndex = 0;
 let score = 0;
-let travel = document.getElementsByTagName("small")[0].innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
+let travel = document.getElementsByTagName("small")[0];
+travel.innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -67,12 +69,13 @@ function showScore() {
 
 function handleNextBtn() {
     currentQuestionIndex++;
-    travel.innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
         showScore();
     }
+
+    currentQuestionIndex == questions.length ? travel.innerHTML = "Done" : travel.innerHTML = `${currentQuestionIndex + 1} out of ${questions.length}`;
 }
 
 nextBtn.addEventListener("click", () => {

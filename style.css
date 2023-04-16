@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+/* for small */
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Capriola', sans-serif;
     box-sizing: border-box;
 }
 
@@ -27,6 +32,7 @@ body {
 small {
     font-weight: 600;
     color: #979797;
+    font-family: 'Palanquin Dark', sans-serif;
 }
 
 .quiz {
@@ -37,6 +43,7 @@ small {
     font-size: 18px;
     font-weight: 600;
     color: #001e4d;
+    font-family: 'DynaPuff', cursive;
 }
 
 .btn {
