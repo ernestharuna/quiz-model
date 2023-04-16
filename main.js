@@ -1,24 +1,35 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { questions } from "./questions";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Ernest Harun!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const questionElement = document.getElementById("question");
+const answerBtn = document.getElementById("answer-buttons");
+const nextBtn = document.getElementById("next-btn");
 
-setupCounter(document.querySelector('#counter'))
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+
+    nextBtn.innerHTML = "Next";
+
+    showQuestion();
+}
+
+function showQuestion() {
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+
+    currentQuestion.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.innerHTML = `${index}. ${answer.text}`;
+        button.classList.add("btn");
+        answerBtn.appendChild(button);
+    })
+}
+
+startQuiz();
+
+console.log(questionElement)
+console.log(questions[0].answers[1].text)
